@@ -1,4 +1,4 @@
-name: Build Paperforge EXE
+name: Build Windows EXE
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
         run: npm run electron:build
 
       - name: Upload Windows EXE
-  uses: actions/upload-artifact@v4
-  with:
-    name: PaperForge-Windows
-    path: dist-electron/*.exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: PaperForge-Windows
+          path: dist-electron/*.exe
