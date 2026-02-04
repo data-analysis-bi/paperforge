@@ -1,1 +1,16 @@
-{ "name": "paperforge" }
+
+{
+  "name": "paperforge",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "electron:build": "electron-builder"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "electron": "^29.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}
