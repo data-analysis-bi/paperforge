@@ -27,8 +27,8 @@ jobs:
       - name: Build Electron EXE
         run: npm run electron:build
 
-      - name: Upload EXE
-        uses: actions/upload-artifact@v4
-        with:
-          name: paperforge-exe
-          path: dist/*.exe
+      - name: Upload Windows EXE
+  uses: actions/upload-artifact@v4
+  with:
+    name: PaperForge-Windows
+    path: dist-electron/*.exe
