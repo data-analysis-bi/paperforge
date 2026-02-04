@@ -9,8 +9,9 @@ files:
   - electron/**
 
 win:
-  target: nsis
+  target:
+    - nsis
 
 nsis:
   oneClick: false
-  allowToChangeInstallationDirectory: true# electron builder
+  allowToChangeInstallationDirectory: true
