@@ -1,7 +1,11 @@
 {
   "name": "paperforge",
   "version": "1.0.0",
+  "description": "PaperForge desktop application",
+  "author": "Your Name",
   "private": true,
+
+  "main": "electron/main.js",
 
   "scripts": {
     "dev": "vite",
