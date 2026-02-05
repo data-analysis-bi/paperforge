@@ -1,19 +1,12 @@
 appId: com.paperforge.app
 productName: PaperForge
 
-publish: null
-
-directories:
-  output: dist-electron
-
 files:
   - dist/**
   - electron/**
 
-win:
-  target:
-    - nsis
+directories:
+  output: dist-electron
 
-nsis:
-  oneClick: false
-  allowToChangeInstallationDirectory: true
+win:
+  target: nsis
