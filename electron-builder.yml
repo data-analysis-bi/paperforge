@@ -10,3 +10,5 @@ directories:
 
 win:
   target: nsis
+
+publish: never
