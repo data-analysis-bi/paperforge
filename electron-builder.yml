@@ -1,7 +1,6 @@
-"build": {
-  "appId": "com.paperforge.app",
-  "productName": "Paperforge",
-  "win": {
-    "target": "nsis"  // For installer .exe
-  }
-}
+appId: "com.paperforge.app"
+productName: "Paperforge"
+
+# For installer .exe (NSIS is the default on Windows anyway, so this is optional)
+win:
+  target: nsis
