@@ -1,34 +1,44 @@
-name: Build Windows EXE
+name: Build and Upload Paperforge Windows EXE
 
 on:
   push:
-    branches: [ main, master ]
-  workflow_dispatch:
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
 
 jobs:
-  build:
+  build-windows:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci  # or npm install
 
-      - name: Build frontend
+      - name: Build Vite frontend
         run: npm run build
 
-      - name: Build Electron EXE
+      - name: Build Electron app (Windows)
         run: npm run electron:build
 
-      - name: Upload Windows EXE
+      - name: Upload Windows artifact (unpacked exe)
         uses: actions/upload-artifact@v4
         with:
-          name: PaperForge-Windows
-          path: dist-electron/*.exe
+          name: PaperForge-Windows-Unpacked
+          path: |
+            dist/win-unpacked/*.exe
+            dist/win-unpacked/**  # include whole folder if needed
+          if-no-files-found: error  # fail if missing (for debugging)
+
+      - name: Upload Windows installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PaperForge-Windows-Installer
+          path: dist/*Setup*.exe   # catches installer .exe
+          if-no-files-found: warn
