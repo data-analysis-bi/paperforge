@@ -1,14 +1,7 @@
-appId: com.paperforge.app
-productName: PaperForge
-
-files:
-  - dist/**
-  - electron/**
-
-directories:
-  output: dist-electron
-
-win:
-  target: nsis
-
-
+"build": {
+  "appId": "com.paperforge.app",
+  "productName": "Paperforge",
+  "win": {
+    "target": "nsis"  // For installer .exe
+  }
+}
