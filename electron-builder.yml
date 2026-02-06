@@ -1,6 +1,8 @@
-appId: "com.paperforge.app"
-productName: "Paperforge"
-
-# For installer .exe (NSIS is the default on Windows anyway, so this is optional)
+directories:
+  output: release               # Puts everything in a clean "release" folder
 win:
-  target: nsis
+  target:
+    - target: nsis              # Installer
+      arch: [x64]
+    - target: portable          # Optional: creates a single portable .exe
+      arch: [x64]
